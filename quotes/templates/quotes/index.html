@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>✨ Daily Quote Generator ✨</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* ----- General Page Style ----- */
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+
+    /* ----- Card Container ----- */
+    .card {
+      background: #fff;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-width: 600px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    /* ----- Quote Text ----- */
+    blockquote {
+      font-size: 1.6rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: #222;
+      margin: 0 0 15px;
+    }
+
+    /* ----- Author ----- */
+    .author {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    /* ----- Button Style ----- */
+    .refresh-btn {
+      background: linear-gradient(90deg, #66a6ff, #89f7fe);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .refresh-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #4e9dfc, #72c6ff);
+    }
+
+    /* ----- Small Animation ----- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ----- Footer ----- */
+    .footer {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <blockquote>“{{ text }}”</blockquote>
+    <div class="author">— {{ author|default:"Unknown" }}</div>
+    <form method="get" action="/">
+      <button type="submit" class="refresh-btn">✨ Show Another Quote</button>
+    </form>
+    <div class="footer">Made with ❤ using Django</div>
+  </div>
+</body>
+</html>
